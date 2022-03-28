@@ -42,7 +42,7 @@ export interface Message {
 export const generateMetaData = () => {
   return {
     plugins: {},
-    network: 56,
+    network: 25,
     strategies: [{ name: 'cake', params: { symbol: 'CCS', address: tokens.cake.address, decimals: 18 } }],
   }
 }
@@ -264,7 +264,7 @@ export async function getVotingPowerList(voters: string[], poolAddresses: string
     scoresListIndex.cakeBnbLpBalances = indexCounter++
   }
 
-  const network = '56'
+  const network = '25'
   const chunkPools = _chunk(poolsStrategyList, 8)
   const finalVotingPowerPools: { [key: string]: BigNumber } = {}
   // eslint-disable-next-line no-restricted-syntax
