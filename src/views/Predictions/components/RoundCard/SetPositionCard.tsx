@@ -51,7 +51,7 @@ const getButtonProps = (value: BigNumber, bnbBalance: BigNumber, minBetAmountBal
   }
 
   if (!hasSufficientBalance()) {
-    return { key: 'Insufficient BNB balance', disabled: true }
+    return { key: 'Insufficient CRO balance', disabled: true }
   }
 
   if (value.eq(0)) {
@@ -143,10 +143,10 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     const hasSufficientBalance = inputAmount.gt(0) && inputAmount.lte(maxBalance)
 
     if (!hasSufficientBalance) {
-      setErrorMessage(t('Insufficient BNB balance'))
+      setErrorMessage(t('Insufficient CRO balance'))
     } else if (inputAmount.gt(0) && inputAmount.lt(minBetAmount)) {
       setErrorMessage(
-        t('A minimum amount of %num% %token% is required', { num: formatBigNumber(minBetAmount), token: 'BNB' }),
+        t('A minimum amount of %num% %token% is required', { num: formatBigNumber(minBetAmount), token: 'CRO' }),
       )
     } else {
       setErrorMessage(null)
@@ -176,7 +176,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
           <Flex alignItems="center">
             <BinanceIcon mr="4px  " />
             <Text bold textTransform="uppercase">
-              BNB
+              CRO
             </Text>
           </Flex>
         </Flex>

@@ -6,7 +6,7 @@ import { multiplyPriceByAmount } from 'utils/prices'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 import { PairState, usePairs } from './usePairs'
 
-const { wbnb: WBNB, busd } = tokens
+const { wbnb: WCRO, busd } = tokens
 
 /**
  * Returns the price in BUSD of the input currency
@@ -17,9 +17,9 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
   const wrapped = wrappedCurrency(currency, chainId)
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
     () => [
-      [chainId && wrapped && currencyEquals(WBNB, wrapped) ? undefined : currency, chainId ? WBNB : undefined],
+      [chainId && wrapped && currencyEquals(WCRO, wrapped) ? undefined : currency, chainId ? WCRO : undefined],
       [wrapped?.equals(busd) ? undefined : wrapped, busd],
-      [chainId ? WBNB : undefined, busd],
+      [chainId ? WCRO : undefined, busd],
     ],
     [chainId, currency, wrapped],
   )
@@ -30,9 +30,9 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       return undefined
     }
     // handle weth/eth
-    if (wrapped.equals(WBNB)) {
+    if (wrapped.equals(WCRO)) {
       if (busdPair) {
-        const price = busdPair.priceOf(WBNB)
+        const price = busdPair.priceOf(WCRO)
         return new Price(currency, busd, price.denominator, price.numerator)
       }
       return undefined
@@ -42,9 +42,9 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       return new Price(busd, busd, '1', '1')
     }
 
-    const ethPairETHAmount = ethPair?.reserveOf(WBNB)
+    const ethPairETHAmount = ethPair?.reserveOf(WCRO)
     const ethPairETHBUSDValue: JSBI =
-      ethPairETHAmount && busdEthPair ? busdEthPair.priceOf(WBNB).quote(ethPairETHAmount).raw : JSBI.BigInt(0)
+      ethPairETHAmount && busdEthPair ? busdEthPair.priceOf(WCRO).quote(ethPairETHAmount).raw : JSBI.BigInt(0)
 
     // all other tokens
     // first try the busd pair
@@ -53,9 +53,9 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       return new Price(currency, busd, price.denominator, price.numerator)
     }
     if (ethPairState === PairState.EXISTS && ethPair && busdEthPairState === PairState.EXISTS && busdEthPair) {
-      if (busdEthPair.reserveOf(busd).greaterThan('0') && ethPair.reserveOf(WBNB).greaterThan('0')) {
+      if (busdEthPair.reserveOf(busd).greaterThan('0') && ethPair.reserveOf(WCRO).greaterThan('0')) {
         const ethBusdPrice = busdEthPair.priceOf(busd)
-        const currencyEthPrice = ethPair.priceOf(WBNB)
+        const currencyEthPrice = ethPair.priceOf(WCRO)
         const busdPrice = ethBusdPrice.multiply(currencyEthPrice).invert()
         return new Price(currency, busd, busdPrice.denominator, busdPrice.numerator)
       }

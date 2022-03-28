@@ -68,17 +68,17 @@ const fetchTokenPriceData = async (
       }
     }
 
-    // format token BNB price results
+    // format token CRO price results
     const tokenPrices: {
       timestamp: string
       derivedBNB: number
       priceUSD: number
     }[] = []
 
-    // Get Token prices in BNB
+    // Get Token prices in CRO
     Object.keys(prices).forEach((priceKey) => {
       const timestamp = priceKey.split('t')[1]
-      // if its BNB price e.g. `b123` split('t')[1] will be undefined and skip BNB price entry
+      // if its CRO price e.g. `b123` split('t')[1] will be undefined and skip CRO price entry
       if (timestamp) {
         tokenPrices.push({
           timestamp,
@@ -88,7 +88,7 @@ const fetchTokenPriceData = async (
       }
     })
 
-    // Go through BNB USD prices and calculate Token price based on it
+    // Go through CRO USD prices and calculate Token price based on it
     Object.keys(prices).forEach((priceKey) => {
       const timestamp = priceKey.split('b')[1]
       // if its Token price e.g. `t123` split('b')[1] will be undefined and skip Token price entry

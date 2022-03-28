@@ -130,7 +130,7 @@ const HoverData = ({ rounds }: { rounds: { [key: string]: NodeRound } }) => {
     <PairPriceDisplay
       width="100%"
       value={hoverData ? hoverData.answer : formatBigNumberToFixed(answerAsBigNumber, 3, 8)}
-      inputSymbol="BNB"
+      inputSymbol="CRO"
       outputSymbol="USD"
       format={false}
       flexWrap="wrap"

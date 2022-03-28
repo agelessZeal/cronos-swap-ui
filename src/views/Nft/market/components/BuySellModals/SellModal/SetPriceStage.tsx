@@ -50,13 +50,13 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
     <>
       <Text>
         {t(
-          'When selling NFTs from this collection, a portion of the BNB paid will be diverted before reaching the seller:',
+          'When selling NFTs from this collection, a portion of the CRO paid will be diverted before reaching the seller:',
         )}
       </Text>
       {creatorFeeAsNumber > 0 && (
         <Text>{t('%percentage%% royalties to the collection owner', { percentage: creatorFee })}</Text>
       )}
-      <Text>{t('%percentage%% trading fee will be used to buy & burn CAKE', { percentage: tradingFee })}</Text>
+      <Text>{t('%percentage%% trading fee will be used to buy & burn CCS', { percentage: tradingFee })}</Text>
     </>,
     { placement: 'auto' },
   )
@@ -88,7 +88,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
         <Flex>
           <Flex flex="1" alignItems="center">
             <BinanceIcon width={24} height={24} mr="4px" />
-            <Text bold>WBNB</Text>
+            <Text bold>WCRO</Text>
           </Flex>
           <Flex flex="2">
             <RightAlignedInput
@@ -111,7 +111,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
         </Flex>
         {priceIsOutOfRange && (
           <Text fontSize="12px" color="failure">
-            {t('Allowed price range is between %minPrice% and %maxPrice% WBNB', {
+            {t('Allowed price range is between %minPrice% and %maxPrice% WCRO', {
               minPrice: MIN_PRICE,
               maxPrice: MAX_PRICE,
             })}
@@ -162,7 +162,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
             {t('The NFT will be removed from your wallet and put on sale at this price.')}
           </Text>
           <Text small color="textSubtle">
-            {t('Sales are in WBNB. You can swap WBNB to BNB 1:1 for free with PancakeSwap.')}
+            {t('Sales are in WCRO. You can swap WCRO to CRO 1:1 for free with PancakeSwap.')}
           </Text>
         </Box>
       </Grid>

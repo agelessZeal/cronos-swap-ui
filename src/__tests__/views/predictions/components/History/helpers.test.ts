@@ -22,11 +22,11 @@ describe('formatBnb', () => {
     [265.22, '265.220'],
     [689.889, '689.889'],
     [10.8829, '10.883'],
-  ])('format %i BNB correctly with 3 decimals', (value, expected) => {
+  ])('format %i CRO correctly with 3 decimals', (value, expected) => {
     expect(formatBnb(value)).toEqual(expected)
   })
 
-  it('returns 0 if BNB is undefined', () => {
+  it('returns 0 if CRO is undefined', () => {
     expect(formatBnb(undefined)).toEqual('0')
   })
 })

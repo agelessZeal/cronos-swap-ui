@@ -33,7 +33,7 @@ const Filters = () => {
   const dispatch = useAppDispatch()
   const orderByOptions = [
     { label: t('Net Winnings'), value: 'netBNB' },
-    { label: t('Total BNB'), value: 'totalBNB' },
+    { label: t('Total CRO'), value: 'totalBNB' },
     { label: t('Rounds Played'), value: 'totalBets' },
     { label: t('Win Rate'), value: 'winRate' },
   ]

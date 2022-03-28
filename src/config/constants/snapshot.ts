@@ -285,7 +285,7 @@ const CakeBnbMasterChefStrategy = {
     chefAddress: getMasterChefAddress(),
     uniPairAddress: cakeLpAddress,
     pid: '251',
-    symbol: 'CAKE-BNB LP',
+    symbol: 'CCS-CRO LP',
     tokenIndex: 0,
   },
 }

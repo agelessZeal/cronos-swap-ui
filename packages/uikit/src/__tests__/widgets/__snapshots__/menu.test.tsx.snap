@@ -2212,7 +2212,7 @@ exports[`renders correctly 1`] = `
                     rel="noreferrer noopener"
                     target="_blank"
                   >
-                    CAKE
+                    CCS
                   </a>
                 </li>
                 <li
@@ -3056,7 +3056,7 @@ exports[`renders correctly 1`] = `
                   scale="sm"
                   target="_blank"
                 >
-                  Buy CAKE
+                  Buy CCS
                   <svg
                     class="c93"
                     color="#FFFFFF"

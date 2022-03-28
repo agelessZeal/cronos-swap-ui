@@ -21,14 +21,14 @@ const getTokenDerivedBnbPrices = async (tokenAddress: string, blocks: Block[]) =
     return null
   }
 
-  // format token BNB price results
+  // format token CRO price results
   const tokenPrices: {
     tokenAddress: string
     timestamp: string
     derivedBNB: number
   }[] = []
 
-  // Get Token prices in BNB
+  // Get Token prices in CRO
   Object.keys(prices).forEach((priceKey) => {
     const timestamp = priceKey.split('t')[1]
     if (timestamp) {

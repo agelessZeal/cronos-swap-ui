@@ -214,7 +214,7 @@ const Desktop: React.FC = () => {
             {isChartPaneOpen && (
               <ChartByLabel
                 justifyContent="flex-end"
-                symbol="BNB/USD"
+                symbol="CRO/USD"
                 by={chartView}
                 linkProps={{
                   onMouseDown: (e) => {
