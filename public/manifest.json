@@ -1,6 +1,6 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
+  "short_name": "CroCoinSwap",
+  "name": "CroCoinSwap",
   "description": "Farm CCS with Pancake LP Tokens",
   "homepage_url": "https://pancakeswap.finance",
   "start_url": ".",
